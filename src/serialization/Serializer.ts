@@ -1,7 +1,7 @@
 export interface Serializer<T> {
-	getType(): string;
+    getType(): string;
 
-	deserialize(stringToDeserialize: string): T;
+    deserialize(stringToDeserialize: string): T;
 
-	serialize(objectToSerialize: T): string;
+    serialize(objectToSerialize: T): string;
 }

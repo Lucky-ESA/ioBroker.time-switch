@@ -1,3 +1,3 @@
 export interface Destroyable {
-	destroy(): void;
+    destroy(): void;
 }

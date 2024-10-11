@@ -4,7 +4,7 @@
     padding: 10px;
     border-radius: 5px;
     height: calc(100% - 20px);
-    font-family: var(--ts-widget-font-family, 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--ts-widget-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     background-color: var(--ts-widget-bg-color, #424242);
     color: var(--ts-widget-fg-color, white);
 }
@@ -52,24 +52,21 @@
     overflow-y: scroll;
     padding-right: 5px;
 }
-.triggers::-webkit-scrollbar-track
-{
+.triggers::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
-.triggers::-webkit-scrollbar
-{
+.triggers::-webkit-scrollbar {
     width: 4px;
     background-color: var(--ts-widget-bg-color, #424242);
 }
 
-.triggers::-webkit-scrollbar-thumb
-{
+.triggers::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: var(--ts-widget-fg-color, white);
 }
 
-button.material-button{
+button.material-button {
     margin: 10px;
     width: 110px;
 }
@@ -94,7 +91,7 @@ button.material-button{
     top: 0px;
     background-color: var(--ts-widget-add-trigger-dropdown-bg-color, #f1f1f1);
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -112,5 +109,5 @@ button.material-button{
 }
 
 .show {
-    display:block;
+    display: block;
 }

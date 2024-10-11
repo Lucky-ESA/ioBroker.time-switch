@@ -1,13 +1,10 @@
 /* Style your widget here */
-.time-switch-widget {
-}
-
 .time-switch-widget p {
-	color: red;
-	height: 100%;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding: 20px;
-	background-color: #403a3d;
-	border-radius: 5px;
+    color: red;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 20px;
+    background-color: #403a3d;
+    border-radius: 5px;
 }

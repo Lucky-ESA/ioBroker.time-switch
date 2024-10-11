@@ -1,3 +1,3 @@
 export interface Condition {
-	evaluate(): Promise<boolean>;
+    evaluate(): Promise<boolean>;
 }

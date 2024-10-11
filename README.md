@@ -32,11 +32,27 @@ For setup instructions visit the [wiki](https://github.com/walli545/ioBroker.tim
 - Countdown trigger
 - Switching of arbitrary values
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
 ## Changelog
+### **WORK IN PROGRESS**
+
+* (Lucky_ESA) *Before upgrading, remove all schedules in vis.*
+* (Lucky_ESA) Added OneTimeSchedule from GIT
+* (Lucky_ESA) VIS-2 compatible
+* (Lucky_ESA) Added rename off/on
+* (Lucky_ESA) Added CSS Style in VIS settings
+* (Lucky_ESA) Added switched delay
+* (Lucky_ESA) Added object name in object view
+* (Lucky_ESA) Update dependencies
+
 ### 2.2.2
 * (walli545)
-  * (Fix) Astro triggers not executing after time change (#133)
-  * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
+    * (Fix) Astro triggers not executing after time change (#133)
+    * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
 
 
 ### 2.2.1

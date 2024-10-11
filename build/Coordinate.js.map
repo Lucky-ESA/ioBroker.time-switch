@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/Coordinate.ts"],
+  "sourcesContent": ["export class Coordinate {\n    private readonly latitude: number;\n    private readonly longitude: number;\n\n    constructor(latitude: number, longitude: number) {\n        if (Math.abs(latitude) > 90) {\n            throw new Error(\"Latitude must be < 90 and > -90\");\n        }\n        if (Math.abs(longitude) > 180) {\n            throw new Error(\"Longitude must be < 180 and > -180\");\n        }\n        this.latitude = latitude;\n        this.longitude = longitude;\n    }\n\n    public getLatitude(): number {\n        return this.latitude;\n    }\n\n    public getLongitude(): number {\n        return this.longitude;\n    }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,MAAM,WAAW;AAAA,EACH;AAAA,EACA;AAAA,EAEjB,YAAY,UAAkB,WAAmB;AAC7C,QAAI,KAAK,IAAI,QAAQ,IAAI,IAAI;AACzB,YAAM,IAAI,MAAM,iCAAiC;AAAA,IACrD;AACA,QAAI,KAAK,IAAI,SAAS,IAAI,KAAK;AAC3B,YAAM,IAAI,MAAM,oCAAoC;AAAA,IACxD;AACA,SAAK,WAAW;AAChB,SAAK,YAAY;AAAA,EACrB;AAAA,EAEO,cAAsB;AACzB,WAAO,KAAK;AAAA,EAChB;AAAA,EAEO,eAAuB;AAC1B,WAAO,KAAK;AAAA,EAChB;AACJ;",
+  "names": []
+}

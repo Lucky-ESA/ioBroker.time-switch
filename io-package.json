@@ -13,6 +13,7 @@
                 "it": "Risolto il problema con i trigger astronomici che non funzionavano dopo il cambio di orario",
                 "es": "Se corrigieron los disparadores de astro que no funcionan después del cambio de hora",
                 "pl": "Napraw wyzwalacze astro, które nie działają po zmianie czasu",
+                "uk": "Виправлення запуску astro не працює після зміни часу",
                 "zh-cn": "修复astro触发器在时间更改后不起作用"
             },
             "2.2.1": {
@@ -25,6 +26,7 @@
                 "it": "Cambia la dipendenza js-controller in> = 2.0.0",
                 "es": "Cambie la dependencia del controlador js a> = 2.0.0",
                 "pl": "Zmień zależność kontrolera js na> = 2.0.0",
+                "uk": "Зміна залежності js-controller до >= 2.0.0",
                 "zh-cn": "将js-controller依赖项更改为> = 2.0.0"
             },
             "2.2.0": {
@@ -37,6 +39,7 @@
                 "it": "Trigger condizionale, correzione per trigger astro e opzione per nascondere il pulsante di modifica del nome",
                 "es": "Disparador condicional, corrección para el disparador astro y opción para ocultar el botón de editar nombre",
                 "pl": "Wyzwalacz warunkowy, poprawka dla wyzwalacza astro i opcja ukrycia przycisku edycji nazwy",
+                "uk": "Кондиціонерний тригер, закріпити для запуску астро і опцію, щоб приховати кнопку редагування імені",
                 "zh-cn": "有条件的触发器，修复了astro触发器，并提供了隐藏编辑名称按钮的选项"
             },
             "2.1.0": {
@@ -49,6 +52,7 @@
                 "it": "Astro trigger, design personalizzati con proprietà css",
                 "es": "Astro trigger, diseños personalizados con propiedades css",
                 "pl": "Spust Astro, niestandardowe projekty z właściwościami css",
+                "uk": "Astro тригер, нестандартні конструкції з css властивості",
                 "zh-cn": "Astro触发器，具有CSS属性的自定义设计"
             },
             "2.0.0": {
@@ -61,6 +65,7 @@
                 "it": "Ultime modifiche, gruppi, configurazione del tipo di valore commutato, widget fisso non funzionante su Safari",
                 "es": "Cambios de última hora, Grupos, configuración de tipo de valor cambiado, widget fijo que no funciona en Safari",
                 "pl": "Łamanie zmian, grupy, konfiguracja typu przełączanej wartości, naprawiony widget nie działa w przeglądarce Safari",
+                "uk": "Передача змін, груп, налаштування типу комутаторів, фіксованого віджету не працює на Safari",
                 "zh-cn": "重大更改，组，切换值类型的配置，固定的小部件无法在Safari上运行"
             },
             "1.1.0": {
@@ -73,6 +78,7 @@
                 "it": "Opzione per nascondere l'ID stato commutato nel widget, amministratore fisso non funzionante su Firefox.",
                 "es": "Opción para ocultar la identificación del estado cambiado en el widget, el administrador fijo no funciona en Firefox.",
                 "pl": "Opcja ukrywania przełączonego identyfikatora stanu w widżecie, naprawiony administrator nie działający w przeglądarce Firefox.",
+                "uk": "Варіант приховати переключений стан id у віджеті, фіксований адміністратор не працює на Firefox.",
                 "zh-cn": "隐藏小部件中切换状态ID的选项，已修复管理员在Firefox上不起作用。"
             },
             "1.0.0": {
@@ -85,10 +91,10 @@
                 "it": "Versione iniziale",
                 "es": "Versión inicial",
                 "pl": "Pierwsze wydanie",
+                "uk": "початковий реліз",
                 "zh-cn": "首次出版"
             }
         },
-        "title": "time-switch",
         "titleLang": {
             "en": "time-switch",
             "de": "Zeitschaltuhr",
@@ -99,6 +105,7 @@
             "it": "tempo-interruttore",
             "es": "interruptor de tiempo",
             "pl": "zmiana czasu",
+            "uk": "час відьма",
             "zh-cn": "定时开关"
         },
         "desc": {
@@ -111,48 +118,70 @@
             "it": "Commutazione dei dispositivi basata sul tempo",
             "es": "Cambio de dispositivos basado en el tiempo",
             "pl": "Czasowe przełączanie urządzeń",
+            "uk": "Час на основі перемикання пристроїв",
             "zh-cn": "基于时间的设备切换"
         },
         "authors": [
             "walli545 <walli5446@gmail.com>"
         ],
         "keywords": [
-            "ioBroker",
-            "template",
-            "Smart Home",
-            "home automation"
+            "schedule",
+            "time",
+            "switch"
         ],
-        "license": "MIT",
+        "licenseInformation": {
+            "type": "free",
+            "license": "MIT"
+        },
         "platform": "Javascript/Node.js",
-        "main": "build/main.js",
         "icon": "time-switch.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/walli545/ioBroker.time-switch/master/admin/time-switch.png",
         "readme": "https://github.com/walli545/ioBroker.time-switch/blob/master/README.md",
         "loglevel": "info",
+        "tier": 3,
         "restartAdapters": [
             "vis"
         ],
         "mode": "daemon",
-        "singleton": true,
         "type": "date-and-time",
         "compact": true,
-        "materialize": true,
         "messagebox": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "adminUI": {
+            "config": "materialize"
+        },
         "dependencies": [
             {
-                "js-controller": ">=2.0.0"
-            },
-            "vis"
+                "js-controller": ">=6.0.11"
+            }
         ],
-        "connectionType": "local",
-        "dataSource": "push"
+        "globalDependencies": [
+            {
+                "admin": ">=7.0.23"
+            }
+        ]
     },
     "native": {
+        "switch_delay": 500,
         "schedules": {
             "onOff": []
         }
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "sendto",
+            "type": "state",
+            "common": {
+                "role": "json",
+                "name": "SendTo Workaround",
+                "type": "string",
+                "read": true,
+                "write": true
+            },
+            "native": {}
+        }
+    ]
 }

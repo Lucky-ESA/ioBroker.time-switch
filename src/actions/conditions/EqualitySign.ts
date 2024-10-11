@@ -1,4 +1,4 @@
 export enum EqualitySign {
-	Equal = '==',
-	NotEqual = '!=',
+    Equal = "==",
+    NotEqual = "!=",
 }

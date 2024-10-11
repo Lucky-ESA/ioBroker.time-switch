@@ -1,53 +1,77 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ActionReferenceSerializer = void 0;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var ActionReferenceSerializer_exports = {};
+__export(ActionReferenceSerializer_exports, {
+  ActionReferenceSerializer: () => ActionReferenceSerializer
+});
+module.exports = __toCommonJS(ActionReferenceSerializer_exports);
 class ActionReferenceSerializer {
-    constructor(typeToReference, referencableActions) {
-        if (!typeToReference) {
-            throw new Error(`typeToReference cannot be null or undefined`);
-        }
-        if (!referencableActions || referencableActions.size == 0) {
-            throw new Error(`referencableActions cannot be null, undefined or empty`);
-        }
-        this.referencableActions = referencableActions;
-        this.typeToReference = typeToReference;
+  referencableActions;
+  typeToReference;
+  constructor(typeToReference, referencableActions) {
+    if (!typeToReference) {
+      throw new Error(`typeToReference cannot be null or undefined`);
     }
-    deserialize(stringToDeserialize) {
-        const json = JSON.parse(stringToDeserialize);
-        if (json.type !== this.getType()) {
-            throw new Error(`Can not reference object of type ${json.type}`);
-        }
-        const found = this.referencableActions.get(json.name);
-        if (found) {
-            return found;
-        }
-        else {
-            throw new Error(`No existing action found with name ${json.name} to reference`);
-        }
+    if (!referencableActions || referencableActions.size == 0) {
+      throw new Error(`referencableActions cannot be null, undefined or empty`);
     }
-    serialize(objectToSerialize) {
-        if (objectToSerialize == null) {
-            throw new Error('objectToSerialize may not be null or undefined.');
-        }
-        let name = null;
-        for (const entry of this.referencableActions.entries()) {
-            if (entry[1] === objectToSerialize) {
-                name = entry[0];
-                break;
-            }
-        }
-        if (name) {
-            return JSON.stringify({
-                type: this.getType(),
-                name: name,
-            });
-        }
-        else {
-            throw new Error('no existing action found');
-        }
+    this.referencableActions = referencableActions;
+    this.typeToReference = typeToReference;
+  }
+  deserialize(stringToDeserialize) {
+    const json = JSON.parse(stringToDeserialize);
+    if (json.type !== this.getType()) {
+      throw new Error(`Can not reference object of type ${json.type}`);
     }
-    getType() {
-        return this.typeToReference;
+    const found = this.referencableActions.get(json.name);
+    if (found) {
+      return found;
+    } else {
+      throw new Error(`No existing action found with name ${json.name} to reference`);
     }
+  }
+  serialize(objectToSerialize) {
+    if (objectToSerialize == null) {
+      throw new Error("objectToSerialize may not be null or undefined.");
+    }
+    let name = null;
+    for (const entry of this.referencableActions.entries()) {
+      if (entry[1] === objectToSerialize) {
+        name = entry[0];
+        break;
+      }
+    }
+    if (name) {
+      return JSON.stringify({
+        type: this.getType(),
+        name
+      });
+    } else {
+      throw new Error("no existing action found");
+    }
+  }
+  getType() {
+    return this.typeToReference;
+  }
 }
-exports.ActionReferenceSerializer = ActionReferenceSerializer;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  ActionReferenceSerializer
+});
+//# sourceMappingURL=ActionReferenceSerializer.js.map

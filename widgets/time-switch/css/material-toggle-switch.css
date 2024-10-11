@@ -20,7 +20,7 @@
     width: 34px;
     height: 14px;
     border-radius: 34px;
-    background: #808080;
+    background: var(--ts-widget-off-color-container, #808080);
     transition: all 100ms linear;
 }
 .md-switch-container .md-switch-handle {
@@ -29,8 +29,11 @@
     position: absolute;
     left: 0;
     border-radius: 100%;
-    background: #c0c0c0;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    background: var(--ts-widget-off-color, #c0c0c0);
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 2px 1px -1px rgba(0, 0, 0, 0.12);
     transition: all 100ms linear;
 }
 .md-switch-container .md-switch-label {
@@ -42,7 +45,7 @@
     -o-user-select: none;
 }
 .md-switch-container.checked .md-switch-track {
-    background: #2f2f2f;
+    background: var(--ts-widget-primary-color-container, #2f2f2f);
 }
 .md-switch-container.checked .md-switch-handle {
     left: 14px;

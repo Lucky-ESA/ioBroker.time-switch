@@ -1,5 +1,5 @@
 export enum AstroTime {
-	Sunrise = 'sunrise',
-	SolarNoon = 'solarNoon',
-	Sunset = 'sunset',
+    Sunrise = "sunrise",
+    SolarNoon = "solarNoon",
+    Sunset = "sunset",
 }

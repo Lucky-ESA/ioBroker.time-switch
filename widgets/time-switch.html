@@ -1,11 +1,11 @@
 <!--
 	ioBroker.vis time-switch Widget-Set
 
-	version: "2.2.2"
+	version: "2.3.0-pre.1"
 
 	Copyright 2019-2021 walli545 walli5446@gmail.com
 
-	Change counter: 21
+	Change counter: 65
 -->
 <!-- here you can include so many css as you want -->
 <link rel="stylesheet" href="widgets/time-switch/css/style.css" />
@@ -18,6 +18,7 @@
 <script src="widgets/time-switch/js/TriggerWithAction.js"></script>
 <script src="widgets/time-switch/js/TimeTrigger.js"></script>
 <script src="widgets/time-switch/js/AstroTrigger.js"></script>
+<script src="widgets/time-switch/js/OneTimeTrigger.js"></script>
 <script src="widgets/time-switch/js/Weekdays.js"></script>
 <script src="widgets/time-switch/js/OnOffStateAction.js"></script>
 <script src="widgets/time-switch/js/ConditionAction.js"></script>
@@ -112,28 +113,67 @@
 
 -->
 <script
-	id="tplTime-switchDevicePlan"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-prev='<img src="widgets/time-switch/img/prev/prev-device-schedule.jpg" width="110px"></img>'
-	data-vis-attrs="
-			dataId/id/onDataIdChange;
+    id="tplTime-switchDevicePlan"
+    type="text/ejs"
+    class="vis-tpl"
+    data-vis-prev='<img src="widgets/time-switch/img/prev/prev-device-schedule.jpg" width="110px"></img>'
+    data-vis-attrs="
+			oid-dataId/id/onDataIdChange;
+			oid-enabled/id/onEnabledChange;
 			showId[true]/checkbox;
 			showManualSwitch[true]/checkbox;
 			useAstroIcons[false]/checkbox;
-			valueType[boolean]/select,boolean,string,number/onValueTypeChange;
-			offValue/string;
-			onValue/string;
+			valueType[boolean]/select,boolean,string,number;
+			offValue/text;
+			onValue/text;
 			statesCount[1]/number,1,10,1;
-			stateId(1-statesCount)/id/onStateIdChange;
+			oid-stateId(1-statesCount)/id/onStateIdChange;
 			showConditionIds[true]/checkbox;
 			conditionStatesCount[1]/number,1,5,1;
-			conditionStateId(1-conditionStatesCount)/id/onConditionStateIdChange;
-			conditionStateAlias(1-conditionStatesCount)/string"
-	data-vis-set="time-switch"
-	data-vis-type="ctrl"
-	data-vis-name="Schedule (On/Off)"
+			oid-conditionStateId(1-conditionStatesCount)/id/onConditionStateIdChange;
+			conditionStateAlias(1-conditionStatesCount)/text;
+			widthActionValue[65px]/text;
+			newOn/text;
+			newOff/text;
+			newAllOn/text;
+			newAllOff/text;
+			useCSS/checkbox;
+			fFamily['Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui, -apple-system]/text;
+			bgwidget[rgba(66,66,66,1)]/color;
+			bgwidgetFont[rgba(255,255,255,1)]/color;
+			bgOn[rgba(51,122,183,1)]/color;
+			bgOnCo[rgba(47,47,47,1)]/color;
+			bgOff[rgba(192,192,192,1)]/color;
+			bgOffCo[rgba(128,128,128,1)]/color;
+			bgTriggerView[rgba(39,39,39,1)]/color;
+			bgTrigger[rgba(241,241,241,1)]/color;
+			bgTriggerHover[rgba(221,221,221,1)]/color;
+			bgTriggerFont[rgba(0,0,0,1)]/color;
+			fcSwitched[rgba(165,165,165,1)]/color;
+			fcbutton[rgba(255,255,255,1)]/color;
+			fcDisWeekday[rgba(93,93,93,1)]/color;
+			fcAcWeekday[rgba(255,255,255,1)]/color;
+			fcName[rgba(255,255,255,1)]/color;
+			fcTime[rgba(255,255,255,1)]/color;
+			fcSwitch[rgba(255,255,255,1)]/color;
+			fcAstro[rgba(0,0,0,1)]/color;
+			fcAstroShift[rgba(93,93,93,1)]/color;
+			fcCondition[rgba(255,255,255,1)]/color;
+			fsName[2em]/text;
+			fsSwitched[15px]/text;
+			fsWeekdays[23px]/text;
+			fsSwitchedValue[2em]/text;
+			fsSwitchedTime[2em]/text;
+			fsSwitchedAstro[1.5em]/text;
+			fsSwitchedAstroShift[1em]/text;
+			fsCondition[1em]/text;
+			fDisplayEdit[block]/select,block,none;
+			fDisplayCondition[block]/select,block,none;
+			fIconFilter[1]/select,1,0"
+    data-vis-set="time-switch"
+    data-vis-type="ctrl"
+    data-vis-name="Schedule (On/Off)"
 >
-	<% vis.binds['time-switch'].createOnOffWidget(this.data.wid, this.view, this.data, this.style); %>
-		<div style="width:300px; height: auto;" id="<%= this.data.attr('wid')%>" class="time-switch-widget vis-widget"></div>
+    <% vis.binds['time-switch'].createOnOffWidget(this.data.wid, this.view, this.data, this.style); %>
+    	<div style="width:300px; height: auto;" id="<%= this.data.attr('wid')%>" class="time-switch-widget vis-widget"></div>
 </script>
